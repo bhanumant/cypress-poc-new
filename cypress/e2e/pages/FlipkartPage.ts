@@ -26,13 +26,20 @@ class FlipkartPage extends BasePage {
   closeLoginModalIfPresent() {
     cy.get('body').then(($body) => {
       if ($body.find('button._2KpZ6l._2doB4z').length > 0) {
-        cy.get('button._2KpZ6l._2doB4z').click();
+        cy.get('button._2KpZ6l._2doB4z').click({ force: true });
       } else if ($body.find('span._3058_').length > 0) {
-        cy.get('span._3058_').click();
+        cy.get('span._3058_').click({ force: true });
       } else if ($body.find('._2Qf202').length > 0) {
-        cy.get('._2Qf202').click();
+        cy.get('._2Qf202').click({ force: true });
+      } else if ($body.find('span:contains("✕")').length > 0) {
+        cy.contains('span', '✕').click({ force: true });
+      } else if ($body.find('button:contains("✕")').length > 0) {
+        cy.contains('button', '✕').click({ force: true });
       }
     });
+
+    // Dismiss overlay via Escape key press
+    cy.get('body').type('{esc}', { force: true });
   }
 
   /**
@@ -41,9 +48,10 @@ class FlipkartPage extends BasePage {
    * @param query Search keyword (e.g. "mobile", "iPhone 15", "Samsung Galaxy")
    */
   searchProductOnRealSite(query: string) {
+    this.closeLoginModalIfPresent();
     cy.get('body').then(($body) => {
       if ($body.find('input[name="q"]').length > 0) {
-        cy.get('input[name="q"]').first().clear().type(`${query}{enter}`);
+        cy.get('input[name="q"]').first().clear({ force: true }).type(`${query}{enter}`, { force: true });
       } else {
         cy.visit(`https://www.flipkart.com/search?q=${encodeURIComponent(query)}`, {
           failOnStatusCode: false,
@@ -63,9 +71,9 @@ class FlipkartPage extends BasePage {
   applyBrandFilterOnRealSite(brandName: string) {
     cy.get('body').then(($body) => {
       if ($body.find(`div[title="${brandName}"]`).length > 0) {
-        cy.get(`div[title="${brandName}"]`).click();
+        cy.get(`div[title="${brandName}"]`).click({ force: true });
       } else if ($body.find(`label:contains("${brandName}")`).length > 0) {
-        cy.contains('label', brandName).click();
+        cy.contains('label', brandName).click({ force: true });
       }
     });
   }

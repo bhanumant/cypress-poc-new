@@ -7,39 +7,48 @@ on:
     branches: [ main, master ]
 
 jobs:
-  cypress-run:
+  cypress-parallel-run:
+    name: Cypress Parallel Container ${{ matrix.containers }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
+
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js Environment
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: |
+          mkdir -p allure-results
           export CYPRESS_CACHE_FOLDER=$PWD/cypress_cache
           npm ci
 
-      - name: TypeScript Strict Check
+      - name: TypeScript Strict Verification
         run: npm run typecheck
 
-      - name: Cypress E2E Run
+      - name: Cypress Parallel E2E Sharded Execution
         uses: cypress-io/github-action@v6
         with:
+          install: false
           browser: chrome
           command: npm run cy:run
         env:
           CYPRESS_baseUrl: https://webdriveruniversity.com
           CYPRESS_CACHE_FOLDER: ${{ github.workspace }}/cypress_cache
 
-      - name: Upload Allure Results
+      - name: Upload Allure Results Artifact (${{ matrix.containers }})
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-results
+          name: allure-results-node-${{ matrix.containers }}
           path: allure-results
-          retention-days: 1
+          if-no-files-found: ignore
+          retention-days: 7

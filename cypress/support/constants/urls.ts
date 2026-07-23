@@ -1,6 +1,5 @@
 export const APP_URLS = {
-  login: '/web/index.php/auth/login',
-  dashboard: '/web/index.php/dashboard/index',
-  resetPassword: '/web/index.php/auth/requestPasswordResetCode',
+  login: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
+  dashboard: 'https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index',
+  resetPassword: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/requestPasswordResetCode',
 } as const;
-

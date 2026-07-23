@@ -1,0 +1,40 @@
+{
+  "name": "cypress-poc-new",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "npm run typecheck && npm run cy:run",
+    "cy:open": "cypress open",
+    "precy:run": "npm run allure:clear",
+    "cy:run": "cypress run --env allure=true",
+    "cy:run:smoke": "cypress run --env tags=@smoke,allure=true",
+    "cy:run:regression": "cypress run --env tags=@regression,allure=true",
+    "cy:run:chrome": "cypress run --browser chrome --env allure=true",
+    "cy:run:firefox": "cypress run --browser firefox --env allure=true",
+    "browserstack:run": "browserstack-cypress run --config-file browserstack.json",
+    "allure:clear": "rm -rf allure-results allure-report",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^10.5.0",
+    "@types/node": "^25.9.1",
+    "@types/pngjs": "^6.0.5",
+    "allure-cypress": "^3.9.0",
+    "browserstack-cypress-cli": "^1.31.5",
+    "cypress": "^15.16.0",
+    "cypress-iframe": "^1.0.1",
+    "jsqr": "^1.4.0",
+    "pngjs": "^7.0.0",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "pdf-parse": "^1.1.1",
+    "xlsx": "^0.18.5"
+  }
+}

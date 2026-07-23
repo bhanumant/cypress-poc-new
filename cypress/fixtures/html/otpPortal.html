@@ -1,0 +1,29 @@
+<div style="font-family: sans-serif; padding: 20px; max-width: 500px; margin: auto;">
+  <h2>2FA / OTP Authentication Portal</h2>
+  <div class="form-group" style="margin-bottom:15px;">
+    <label>Mobile Number:</label>
+    <input type="tel" id="phoneInput" name="mobile" placeholder="Enter Mobile Number" value="+1-555-019-2834">
+    <button id="send-otp-btn" style="margin-left: 10px;">Send OTP</button>
+  </div>
+  
+  <div id="otp-section" style="display:none; margin-top:15px;">
+    <h3>Single Input Field OTP</h3>
+    <div class="form-group" style="margin-bottom:15px;">
+      <input type="text" id="otpInput" name="otp" placeholder="Enter 6-digit OTP" maxlength="6">
+      <button id="verify-otp-btn">Verify</button>
+      <button id="resend-otp-btn">Resend</button>
+    </div>
+
+    <h3>Multi-Box Digit OTP</h3>
+    <div class="otp-box-container" style="display:flex; gap:8px; margin:15px 0;">
+      <input type="text" class="otp-digit-box" maxlength="1" style="width:35px; height:35px; text-align:center;">
+      <input type="text" class="otp-digit-box" maxlength="1" style="width:35px; height:35px; text-align:center;">
+      <input type="text" class="otp-digit-box" maxlength="1" style="width:35px; height:35px; text-align:center;">
+      <input type="text" class="otp-digit-box" maxlength="1" style="width:35px; height:35px; text-align:center;">
+      <input type="text" class="otp-digit-box" maxlength="1" style="width:35px; height:35px; text-align:center;">
+      <input type="text" class="otp-digit-box" maxlength="1" style="width:35px; height:35px; text-align:center;">
+    </div>
+  </div>
+
+  <div id="otp-status" class="otp-status-message" style="margin-top:15px; font-weight:bold;"></div>
+</div>

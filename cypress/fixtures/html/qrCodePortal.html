@@ -1,0 +1,28 @@
+<div style="font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto;">
+  <h2>QR Code Verification & Authentication Portal</h2>
+  
+  <div style="margin-bottom: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 6px;">
+    <h3>Static QR Code Image</h3>
+    <img id="qrCodeImage" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA6SURBVHhe7cExAQAAAMKg9U9tCY+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIB/A8W0AAEHlC1zAAAAAElFTkSuQmCC" alt="QR Code" width="128" height="128">
+    <p>Payload: <span id="qrImagePayloadText">https://webdriveruniversity.com/auth?token=qr_sec_9988</span></p>
+  </div>
+
+  <div style="margin-bottom: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 6px;">
+    <h3>Interactive QR Canvas Generator</h3>
+    <canvas id="qrCanvas" width="150" height="150" style="border: 1px solid #000; display: block; margin-bottom: 10px;"></canvas>
+    
+    <div style="margin-bottom: 10px;">
+      <label>QR Payload Input:</label>
+      <input type="text" id="qrTextInput" value="OTP-SECRET-KEY-9988" style="width: 250px; padding: 5px;">
+      <button id="generateQrBtn" style="padding: 5px 10px;">Generate QR Canvas</button>
+    </div>
+
+    <div>
+      <label>Scanned Payload Verification:</label>
+      <input type="text" id="scannedPayloadInput" placeholder="Decoded Payload Will Appear Here" style="width: 250px; padding: 5px;">
+      <button id="verifyQrBtn" style="padding: 5px 10px;">Verify QR Code</button>
+    </div>
+
+    <div id="qrVerificationStatus" style="margin-top: 10px; font-weight: bold;"></div>
+  </div>
+</div>

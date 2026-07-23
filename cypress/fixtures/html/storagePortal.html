@@ -1,0 +1,21 @@
+<div style="font-family: sans-serif; padding: 20px; max-width: 500px; margin: auto;">
+  <h2>Browser Storage Portal</h2>
+  
+  <div style="margin-bottom: 20px;">
+    <h3>Local Storage Operations</h3>
+    <input type="text" id="localKey" placeholder="Storage Key" style="padding: 6px;">
+    <input type="text" id="localVal" placeholder="Storage Value" style="padding: 6px;">
+    <button type="button" id="saveLocalBtn" style="padding: 6px 12px; background: #007bff; color: white; border: none; border-radius: 4px;">Save Local</button>
+    <p>Stored Local Value: <span id="localDisplay" style="font-weight: bold; color: green;">None</span></p>
+  </div>
+
+  <div style="margin-bottom: 20px;">
+    <h3>Session Storage Operations</h3>
+    <input type="text" id="sessionKey" placeholder="Session Key" style="padding: 6px;">
+    <input type="text" id="sessionVal" placeholder="Session Value" style="padding: 6px;">
+    <button type="button" id="saveSessionBtn" style="padding: 6px 12px; background: #28a745; color: white; border: none; border-radius: 4px;">Save Session</button>
+    <p>Stored Session Value: <span id="sessionDisplay" style="font-weight: bold; color: blue;">None</span></p>
+  </div>
+
+  <div id="sessionStatus" style="margin-top: 15px; font-style: italic;"></div>
+</div>

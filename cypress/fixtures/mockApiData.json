@@ -1,0 +1,31 @@
+{
+  "mockUsers": [
+    {
+      "id": 101,
+      "name": "Jane Doe",
+      "username": "janedoe",
+      "email": "jane.doe@enterprise-qa.com",
+      "role": "QA Lead",
+      "status": "Active"
+    },
+    {
+      "id": 102,
+      "name": "John Smith",
+      "username": "johnsmith",
+      "email": "john.smith@enterprise-qa.com",
+      "role": "Automation Engineer",
+      "status": "Active"
+    }
+  ],
+  "mockPost": {
+    "id": 999,
+    "title": "Cypress E2E Network Interception Blueprint",
+    "body": "Mocked API response data generated for testing network intercepts.",
+    "userId": 101
+  },
+  "mockError": {
+    "statusCode": 500,
+    "error": "Internal Server Error",
+    "message": "Database connection pool exhausted. Please retry later."
+  }
+}

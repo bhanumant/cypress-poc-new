@@ -1,0 +1,52 @@
+{
+  "sliderData": {
+    "role": "slider",
+    "min": "0",
+    "max": "1000",
+    "initialMinNow": "100",
+    "initialMaxNow": "800",
+    "stepUpNow": "150",
+    "stepDownNow": "100"
+  },
+  "contactUsData": {
+    "validUser": {
+      "firstName": "Enterprise",
+      "lastName": "AutomationQA",
+      "email": "qa.automation@webdriveruniversity.com",
+      "comments": "Executing Cypress E2E automated submission test."
+    },
+    "incompleteUser": {
+      "firstName": "Incomplete",
+      "comments": "Missing email and last name"
+    },
+    "invalidEmailUser": {
+      "firstName": "Alex",
+      "lastName": "User",
+      "email": "invalid-email-format",
+      "comments": "Testing invalid email format"
+    },
+    "draftUser": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "comments": "Draft message text"
+    },
+    "messages": {
+      "success": "Thank You for your Message!",
+      "errorRequired": "Error: all fields are required",
+      "errorInvalidEmail": "Error: Invalid email address"
+    }
+  },
+  "flipkartData": {
+    "searchQueries": {
+      "mobile": "mobile",
+      "iphone": "iPhone 15",
+      "samsung": "Samsung Galaxy"
+    },
+    "urlQueryParams": {
+      "mobile": "q=mobile",
+      "iphone": "q=iPhone",
+      "samsung": "q=Samsung"
+    }
+  }
+}

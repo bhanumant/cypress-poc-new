@@ -1,0 +1,40 @@
+{
+  "auth": {
+    "username": "BROWSERSTACK_USERNAME",
+    "access_key": "BROWSERSTACK_ACCESS_KEY"
+  },
+  "browsers": [
+    {
+      "browser": "chrome",
+      "os": "OS X Sonoma",
+      "versions": ["latest"]
+    },
+    {
+      "browser": "firefox",
+      "os": "Windows 11",
+      "versions": ["latest"]
+    },
+    {
+      "browser": "edge",
+      "os": "Windows 11",
+      "versions": ["latest"]
+    }
+  ],
+  "run_settings": {
+    "cypress_config_file": "cypress.config.ts",
+    "project_name": "Enterprise Cypress POC Automation",
+    "build_name": "Cypress-Enterprise-Cloud-Build-1.0",
+    "exclude": [],
+    "parallels": 3,
+    "npm_dependencies": {
+      "allure-cypress": "^3.9.0",
+      "@faker-js/faker": "^10.5.0"
+    }
+  },
+  "connection_settings": {
+    "local": false
+  },
+  "reporting": {
+    "allure": true
+  }
+}

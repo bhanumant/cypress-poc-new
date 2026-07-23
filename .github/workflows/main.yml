@@ -1,0 +1,45 @@
+name: Cypress Enterprise Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          export CYPRESS_CACHE_FOLDER=$PWD/cypress_cache
+          npm ci
+
+      - name: TypeScript Strict Check
+        run: npm run typecheck
+
+      - name: Cypress E2E Run
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+          command: npm run cy:run
+        env:
+          CYPRESS_baseUrl: https://webdriveruniversity.com
+          CYPRESS_CACHE_FOLDER: ${{ github.workspace }}/cypress_cache
+
+      - name: Upload Allure Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: allure-results
+          retention-days: 1

@@ -1,0 +1,35 @@
+<div style="font-family: sans-serif; padding: 20px; max-width: 550px; margin: auto;">
+  <h2>Create Account & Verify Gmail OTP</h2>
+  
+  <form id="registrationForm">
+    <div style="margin-bottom:10px;">
+      <label>First Name:</label><br>
+      <input type="text" id="firstName" name="firstName" style="width:100%; padding:8px;">
+    </div>
+    <div style="margin-bottom:10px;">
+      <label>Last Name:</label><br>
+      <input type="text" id="lastName" name="lastName" style="width:100%; padding:8px;">
+    </div>
+    <div style="margin-bottom:10px;">
+      <label>Gmail Address:</label><br>
+      <input type="email" id="regEmail" name="email" style="width:100%; padding:8px;">
+    </div>
+    <div style="margin-bottom:10px;">
+      <label>Password:</label><br>
+      <input type="password" id="regPassword" name="password" style="width:100%; padding:8px;">
+    </div>
+    <button type="button" id="registerBtn" style="padding:10px 20px; background:#007bff; color:#fff; border:none; border-radius:4px;">Register Account</button>
+  </form>
+
+  <div id="verificationSection" style="display:none; margin-top:20px; border-top:1px solid #ccc; padding-top:15px;">
+    <h3>Verify Gmail Code</h3>
+    <p>A 6-digit code has been sent to your Gmail inbox.</p>
+    <div style="margin-bottom:10px;">
+      <input type="text" id="emailOtpInput" placeholder="Enter 6-digit Gmail OTP" maxlength="6" style="padding:8px; width:200px;">
+      <button type="button" id="activateAccountBtn" style="padding:8px 15px; background:#28a745; color:#fff; border:none; border-radius:4px;">Activate Account</button>
+      <button type="button" id="resendGmailCodeBtn" style="padding:8px 15px; background:#ffc107; border:none; border-radius:4px;">Resend Code</button>
+    </div>
+  </div>
+
+  <div id="accountStatus" class="account-status-banner" style="margin-top:15px; font-weight:bold;"></div>
+</div>
